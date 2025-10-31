@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+.custom-scrollbar::-webkit-scrollbar {
+  height: 12px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #1e293b;
+  border-radius: 0 0 12px 12px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #06b6d4, #3b82f6);
+  border-radius: 10px;
+  border: 2px solid #1e293b;
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+  transition: all 0.3s ease;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(90deg, #0891b2, #2563eb);
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.8);
+  transform: scaleY(1.1);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(90deg, #0e7490, #1d4ed8);
+}
+
+/* Para Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #06b6d4 #1e293b;
+}
+
+.table-container {
+  position: relative;
+}
+
+ /* barra sticky */
+.table-container::after {
+  content: '';
+  position: absolute;
+  right: 150px;
+  top: 0;
+  bottom: 12px;
+  width: 30px;
+  background: linear-gradient(to left, transparent, rgba(6, 182, 212, 0.1));
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.table-container.has-scroll::after {
+  opacity: 1;
+}
